@@ -62,7 +62,7 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Get the API URL from environment variables
-  const API_URL = process.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   // Actions
   async function getTransactions() {
