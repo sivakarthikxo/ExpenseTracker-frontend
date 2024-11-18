@@ -61,10 +61,13 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
+  // Get the API URL from environment variables
+  const API_URL = process.env.VITE_API_URL || 'http://localhost:5000';
+
   // Actions
   async function getTransactions() {
     try {
-      const res = await axios.get('http://localhost:5000/api/transactions');
+      const res = await axios.get(`${API_URL}/api/transactions`);
       dispatch({
         type: 'GET_TRANSACTIONS',
         payload: res.data.data,
@@ -76,7 +79,7 @@ export const GlobalProvider = ({ children }) => {
 
   async function deleteTransaction(id) {
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+      await axios.delete(`${API_URL}/api/transactions/${id}`);
       dispatch({
         type: 'DELETE_TRANSACTION',
         payload: id,
@@ -88,7 +91,7 @@ export const GlobalProvider = ({ children }) => {
 
   async function addTransaction(transaction) {
     try {
-      const res = await axios.post('http://localhost:5000/api/transactions', transaction);
+      const res = await axios.post(`${API_URL}/api/transactions`, transaction);
       dispatch({
         type: 'ADD_TRANSACTION',
         payload: res.data.data,
@@ -114,4 +117,3 @@ export const GlobalProvider = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
-
