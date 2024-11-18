@@ -2,8 +2,8 @@ import './App.css'
 import Header from './components/Header'
 import Balance from './components/Balance'
 import Income from './components/Income'
-import TransactionHistory from './components/History'
-import AddNewTransaction from './components/AddTransaction'
+import History from './components/History'
+import AddNewTransaction from './components/AddNewTransaction'
 import { GlobalProvider } from './context/GlobalState'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Balance />
       <Income />
-      <TransactionHistory />
+      <History />
       <AddNewTransaction />
     </GlobalProvider>
   )
