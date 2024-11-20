@@ -7,6 +7,7 @@ This is the frontend application for the Expense Tracker project, built using Re
 - Add new transactions (income/expenses)
 - Delete transactions
 - Real-time UI updates
+- Deployed using Vercel
 
 ## Tech Stack
 - React
